@@ -18,7 +18,7 @@ module.exports = function(app) {
 
         app.get("/query/:query/location/:location", function(req, res) {
 
-            yelp.search({ term: req.params.query, location: req.params.query })
+            yelp.search({ term: req.params.query, location: req.params.location })
                 .then(function(data) {
                     res.json(data);
                 })
