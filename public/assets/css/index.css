@@ -4,7 +4,17 @@
     border-style: solid;
     border-width: 2px;
     padding: 10px;
+    color:black;
 }
+
+#side_bar{
+  overflow: auto;
+  height: 550px;
+  
+    background-color: rgba(23, 92, 152, 0.15);
+}
+
+
 
 #input-location {
       width: 30%;
@@ -12,6 +22,7 @@
     border-style: solid;
     border-width: 2px;
     padding: 10px;
+    color: black;
 }
 
 .search-btn{
