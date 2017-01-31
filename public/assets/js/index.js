@@ -51,29 +51,43 @@ var lat = res.businesses[i].location.coordinate.latitude;
 	var mark =  new google.maps.Marker({
           position: coo,
           map: map,
+          id:i,
           title: 'Hello World!'
         });
+
+
 markers.push(mark);
 
+ google.maps.event.addListener(markers[i], 'mouseover', function(event) {
+        var id= $(this)[0].id;
+          $('#side_bar').animate({scrollTop : $("#"+id).position().top},100);
+           $("#"+id).css({"background-color" : "white"},1000)
+      });
+      google.maps.event.addListener(coo, 'mouseout', function(event) {
+          this.setIcon('http://www.christielakekids.com/_images/new/blue_circle.png');
+      });
+
+
 //var image =  res.businesses[i].snippet_image_url + "'>";
+var div = $("<div class = 'res-list' id='"+i+"'>");
 var title_ = "<h3 class='title' data-id='"+i+"'><a>"+res.businesses[i].name+"</a> </h3>";
 var rating = "<h5 class='rating'>"+res.businesses[i].rating+" </h5>";
 var rating1 = "<img src='"+res.businesses[i].rating_img_url_small+ "'>";;
-
-$("#side_bar").append( title_, rating, rating1, "<hr>");
+div.append( title_, rating, rating1, "<hr>")
+$("#side_bar").append(div);
 
 }
 
   map.panTo(coo);
   map.setZoom(12);
 
-  $(".title").hover(function(){
-    var id = parseInt($(this).data("id"));
+  $(".res-list").hover(function(){
+    var id = parseInt($(this).children().data("id"));
 
     markers[id].setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
 
 
-    }, function(){ var id = parseInt($(this).data("id"));
+    }, function(){ var id = parseInt($(this).children().data("id"));
 
     markers[id].setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
 });

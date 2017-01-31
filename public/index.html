@@ -1,169 +1,181 @@
 <!DOCTYPE html>
 <html class="no-js">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Menugram</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    
+
     <!-- CSS -->
     <!-- Js -->
-    
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-    crossorigin="anonymous">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="assets/css/index.css">
 
 
-    <link rel="stylesheet" type="text/css" href="assets/css/sign_modal.css">    
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="assets/css/sign_modal.css">
+</head>
+
+<body>
 
 
 
     <!-- Header Start -->
-  <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <!-- header Nav Start -->
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    <header>
+
+
+        <div class="holdingDiv">
+            <form action="/file-upload" name="upload" class="dropzone dz-clickable" id="dropzoneArea" enctype="multipart/form-data" method="post">
+                <input type="file" name="theFile" />
+                <button id="uploadSubmitter" class="btn btn-primary btn-large" type="submit">Finished</button>
+            </form>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- header Nav Start -->
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                                <a class="navbar-brand" href="index.html">
                   <img src="https://cdn3.iconfinder.com/data/icons/map-markers-1/512/cafe-512.png" style="width:50px; height=50px" " alt="Logo">
 
                 </a>
-<ul class="nav navbar-nav navbar-left ">
-                    <li><a href="index.html" style="font-size:20px">Menugram</a>
+                                <ul class="nav navbar-nav navbar-left ">
+                                    <li><a href="index.html" style="font-size:20px">Menugram</a>
 
-                    </li></ul>
+                                    </li>
+                                </ul>
 
-              </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="work.html">Work</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Service</a></li>
-                    <li id="sign-in"><a href="#">Sign In</a></li>
-                  </ul>
-                </div><!-- /.navbar-collapse -->
-              </div><!-- /.container-fluid -->
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header><!-- header close -->
-        
-        <div id="map">
-    <!-- Slider Start -->
-    <section id="slider">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <div class="block">
-              <h1 class="animated name">MENUGRAM</h1>
-              <p class="animated fadeInUp"><div class="row search-row">
-      <input type="text" name="" value="steak" placeholder="Search..." id="input-search">
-      <input type="text" name="" value="orlando" placeholder="Location" id="input-location">
-<br><br>
-      <button id = "search-btn" class="btn btn-primary search-btn ">Search</button>
-
-    </div></p>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="work.html">Work</a></li>
+                                    <li><a href="#">Support</a></li>
+                                    <li><a href="#">Service</a></li>
+                                    <li id="sign-in"><a href="#">Sign In</a></li>
+                                    <li id="register"><a href="#">Register</a></li>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+                        <!-- /.container-fluid -->
+                    </nav>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </header>
+    <!-- header close -->
+
+    <div id="map">
+        <!-- Slider Start -->
+        <section id="slider">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="block">
+                            <h1 class="animated name">MENUGRAM</h1>
+                            <p class="animated fadeInUp">
+                                <div class="row search-row">
+                                    <input type="text" name="" value="steak" title="Hooray!" placeholder="Search..." id="input-search">
+                                    <input type="text" name="" value="orlando" placeholder="Location" id="input-location">
+                                    <br><br>
+                                    <button id="search-btn" class="btn btn-primary search-btn ">Search</button>
+
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
-<div class="col-sm-5" id="listPlaces" style="display:none">
-  waaaaaa
-</div>
+        <div class="col-sm-5" id="listPlaces" style="display:none">
+            waaaaaa
+        </div>
     </div>
     <!-- Wrapper Start -->
-      <div class="modal fade" id="mModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-<div class="form">
-    <form class="register-form" >
-      <input id = "register_name" type="text" placeholder="Username"/>
-      <input id = "first_name" type="text" placeholder="first name"/>
-      <input id = "last_name" type="text" placeholder="Last Name"/>
-      <input id = "register_password" type="password" placeholder="password"/>
-      <input id = "register_email" type="text" placeholder="email address"/>
-      <button id = "register_button">create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-    <form class="login-form">
-      <input id= "login_email" type="text" placeholder="Email"/>
-      <input id="login_password" type="password" placeholder="password"/>
-      <button id = "login_button">login</button>
-      <p class="message">Not registered? <a href=".register-form">Create an account</a></p>
-    </form>
-  </div>
+    <div class="modal fade" id="mModal" role="dialog">
+        <div class="modal-dialog">
 
-       
-      </div>
-      </div>
+            <!-- Modal content-->
+            <div class="form">
+                <form class="register-form">
+                    <input id="register_name" type="text" placeholder="Username" />
+                    <input id="first_name" type="text" placeholder="first name" />
+                    <input id="last_name" type="text" placeholder="Last Name" />
+                    <input id="register_password" type="password" placeholder="password" />
+                    <input id="register_email" type="text" placeholder="email address" />
+                    <button id="register_button">create</button>
+                    <p class="message">Already registered? <a href="#">Sign In</a></p>
+                </form>
+                <form class="login-form">
+                    <input id="login_email" type="text" placeholder="Email" />
+                    <input id="login_password" type="password" placeholder="password" />
+                    <button id="login_button">login</button>
+                    <p class="message">Not registered? <a href="#">Create an account</a></p>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
     <!-- footer Start -->
     <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="footer-manu">
-              <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">How it works</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Terms</a></li>
-              </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-manu">
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">How it works</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">Terms</a></li>
+                        </ul>
+                    </div>
+                    <p>Copyright &copy; Design & Developed by <a href="http://www.themefisher.com">Themefisher</a>. All rights reserved.</p>
+                </div>
             </div>
-            <p>Copyright &copy; Design & Developed by <a href="http://www.themefisher.com">Themefisher</a>. All rights reserved.</p>
-          </div>
         </div>
-      </div>
     </footer>
 
 
 
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-  crossorigin="anonymous"></script>
-<!-- Google Maps JS Folder -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Google Maps JS Folder -->
 
-<script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
 
-            
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZmV9YBAQgX0sLqvFG8p2ZOD5ruMcQtU4&libraries=places">
-</script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZmV9YBAQgX0sLqvFG8p2ZOD5ruMcQtU4&libraries=places">
+    </script>
 
 
 
-<script type="text/javascript" src = 'assets/js/signInRegister.js'></script>
+    <script type="text/javascript" src='assets/js/signInRegister.js'></script>
 
-<script type="text/javascript" src = 'assets/js/index.js'></script>
-    
-    </body>
+    <script type="text/javascript" src='assets/js/index.js'></script>
+
+</body>
+
 </html>
