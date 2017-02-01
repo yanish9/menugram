@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
             classMethods: {
                 associate: function(models) {
                     // Associating "Dish" with "rest_dish"
-                    Dish.hasMany(models.Restaurant_dish);
+                    // Dish.hasMany(models.Restaurant_dish);
                 }
             }
         });
