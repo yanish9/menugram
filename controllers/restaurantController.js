@@ -9,9 +9,37 @@ router.get("/", function(req, res) {
 });
 
 router.get("/query/:query/location/:location", function(req, res) {
-    db.burgers.findAll({}).then(function(rest) {
+    console.log("wa");
+    db.restaurant.findAll({
+        where: {
+            rest_name: {
+                $like: '%' + req.params.query + '%'
+            },
+            rest_city: req.params.location
+        }
+    }).then(function(rest) {
 
-        res.json(rest)
+        // console.log(rest[0].dataValues);
+
+
+        if (rest.length < 20) {
+            db.restaurant.findAll({
+                where: {
+                    rest_type: {
+                        $like: '%' + req.params.query + '%'
+                    },
+                    rest_city: req.params.location
+                }
+            }).then(function(rest1) {
+                for (var i = 0; i < rest1.length; i++) {
+                    rest.push(rest1[i].dataValues);
+                }
+                res.json(rest);
+
+            });
+        } else {
+            res.json(rest);
+        }
 
     });
 });

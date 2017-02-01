@@ -58,7 +58,7 @@
 	                isLogin = true;
 	                $("#sign-in").html("");
 	                $("#sign-in").html('<a href="#">' + user.displayName + '</a>');
-	                $("#register").empty();
+                  $("#register").empty();
 
 	            } else {
 
