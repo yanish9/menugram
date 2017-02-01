@@ -1,121 +1,138 @@
-	
-
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCWKRtae23wddHD89tw6nghlVdfxp6i7dU",
-    authDomain: "menugram-7da5c.firebaseapp.com",
-    databaseURL: "https://menugram-7da5c.firebaseio.com",
-    storageBucket: "menugram-7da5c.appspot.com",
-    messagingSenderId: "475827934505"
-  };
-  firebase.initializeApp(config);
+	// Initialize Firebase
+	var config = {
+	    apiKey: "AIzaSyCWKRtae23wddHD89tw6nghlVdfxp6i7dU",
+	    authDomain: "menugram-7da5c.firebaseapp.com",
+	    databaseURL: "https://menugram-7da5c.firebaseio.com",
+	    storageBucket: "menugram-7da5c.appspot.com",
+	    messagingSenderId: "475827934505"
+	};
+	firebase.initializeApp(config);
 
 
-// getting random pictures and menu
+	// getting random pictures and menu
 
 
-	$( document ).ready(function() {
+	$(document).ready(function() {
 
 
-$(document).on("click", "#register_button", registerUser);
+	    $(document).on("click", "#register_button", registerUser);
 
 
-$(document).on("click", "#login_button", loginUser);
+	    $(document).on("click", "#login_button", loginUser);
 
 
-$("#sign-in").on("click", showModalSignRegister);
+	    $("#sign-in").on("click", showModalSignRegister);
 
 
-function showModalSignRegister () {
-	$("#mModal").modal("show");
-	console.log('wa');
-  return false;
-}
+	    function showModalSignRegister() {
+	        $("#mModal").modal("show");
+	        console.log('wa');
+	        return false;
+	    }
 
 
-$('.message a').click(function(){
- $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});
+	    $('.message a').click(function() {
+	        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+	    });
 
-function toggleModal (argument) {
- $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-  // body... 
-}
+	    function toggleModal(argument) {
+	        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+	        // body... 
+	    }
 
 
 
- checkUserSigned();
+	    checkUserSigned();
 
-//user sign in
-function checkUserSigned (argument) {
-  // body... 
+	    //user sign in
+	    function checkUserSigned(argument) {
+	        // body... 
 
-  firebase.auth().onAuthStateChanged(function(user) {
-
-
+	        firebase.auth().onAuthStateChanged(function(user) {
 
 
-  });
+	            $("#sign-in").empty();
+
+	            if (user) {
+
+	                isLogin = true;
+	                $("#sign-in").html("");
+	                $("#sign-in").html('<a href="#">' + user.displayName + '</a>');
+	                $("#register").empty();
+
+	            } else {
+
+	                isLogin = false;
+	                $("#sign-in").html("");
+	                $("#sign-in").html('<a href="#">Sign In</a>');
+	                $("#register").html('<a href="#">Register</a>');
+	                //$("#registerbutton").on("click", registerModal);
+
+	            }
+
+	            //  userLoginOrNot();
+
+
+	        });
 
 
 
-}
+	    }
 
 
 
 
-function loginUser (argument) {
-  // body... 
-  var email = $("#login_email").val();
-  var password = $("#login_password").val();
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error, data) {
+	    function loginUser(argument) {
+	        // body... 
+	        var email = $("#login_email").val();
+	        var password = $("#login_password").val();
+	        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error, data) {
 
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
+	            // Handle Errors here.
+	            var errorCode = error.code;
+	            var errorMessage = error.message;
 
-            if (errorCode === "auth/wrong-password") {
-              $("#nopassword").empty();
-              $(".form").prepend("<div id='nopassword'><span style= 'color: red'>Wrong email or password </span></div>");
-              console.log("wa");
-            }
-            else {
-
-
-              $("#login_email").val("");
-              $("#login_password").val("");
-              $("#nopassword").empty();
-              $("#mModal").modal("toggle");
-
-              console.log("Login");
-            }
-
-          });
+	            if (errorCode === "auth/wrong-password") {
+	                $("#nopassword").empty();
+	                $(".form").prepend("<div id='nopassword'><span style= 'color: red'>Wrong email or password </span></div>");
+	                console.log("wa");
+	            } else {
 
 
-return false;
-}
+	                $("#login_email").val("");
+	                $("#login_password").val("");
+	                $("#nopassword").empty();
+	                $("#mModal").modal("toggle");
 
-function registerUser (argument) {
+	                console.log("Login");
+	            }
 
-
-  var email = $("#register_email").val();
-  var password = $("#register_password").val();
-  var displayName = $("#register_name").val();
-  var last = $("#last_name").val();
-  var first = $("#first_name").val();
-
-  firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
+	        });
 
 
-    var user = firebase.auth().currentUser;
-    if (user !== null) {
-      user.updateProfile({
-        displayName: displayName
-      }).then(function() {
-        console.log("Update successful.");
+	        return false;
+	    }
 
-       /* database.ref("users/"+email.replace(".","-")).set({
+	    function registerUser(argument) {
+
+
+	        var email = $("#register_email").val();
+	        var password = $("#register_password").val();
+	        var displayName = $("#register_name").val();
+	        var last = $("#last_name").val();
+	        var first = $("#first_name").val();
+
+	        firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
+
+
+	            var user = firebase.auth().currentUser;
+	            if (user !== null) {
+	                user.updateProfile({
+	                    displayName: displayName
+	                }).then(function() {
+	                    console.log("Update successful.");
+
+	                    /* database.ref("users/"+email.replace(".","-")).set({
           email:email,
           displayName:displayName,
           lastName:last,
@@ -124,49 +141,39 @@ function registerUser (argument) {
         });
 */
 
-      }, function(error) {
-  // An error happened.
-})
-    }}
-    )
+	                }, function(error) {
+	                    // An error happened.
+	                })
+	            }
+	        })
 
 
-  .catch(function(error) {
+	        .catch(function(error) {
 
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                console.log(error.code + ": " + error.message);
+	            // Handle Errors here.
+	            var errorCode = error.code;
+	            var errorMessage = error.message;
+	            console.log(error.code + ": " + error.message);
 
-                console.log(authData);
-              });
-
- 
-}
-
-function sign_out () {
-
-  firebase.auth().signOut().then(function() {
-
-        // Sign-out successful.
-        console.log("Signed out");
-
-        checkUserSigned();
-
-      });
-
-}
+	            console.log(authData);
+	        });
 
 
+	        return false;
+	    }
 
+	    function sign_out() {
 
+	        firebase.auth().signOut().then(function() {
 
+	            // Sign-out successful.
+	            console.log("Signed out");
 
+	            checkUserSigned();
 
+	        });
 
-
-
-});
+	    }
 
 
 
@@ -174,3 +181,10 @@ function sign_out () {
 
 
 
+
+
+
+
+
+
+	});
