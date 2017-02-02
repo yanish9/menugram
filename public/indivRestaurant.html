@@ -18,7 +18,7 @@
       <h3>Handlebar Restaurant Address</h3>
       <h3>Handlebar Restaurant Number</h3>
       <hr>
-      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span>Full Screen</button></a>
+      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Full Screen</button></a>
     </div>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -125,27 +125,6 @@
         <hr>
     
   </div>
-
-  <script type="text/javascript">
-    // Question: What does this code do?
-    $("#addBtn").on("click", function() {
-      var newCharacter = {
-        name: $("#name").val().trim(),
-        role: $("#role").val().trim(),
-        age: $("#age").val().trim(),
-        forcePoints: $("#forcepoints").val().trim()
-      };
-
-      // Question: What does this code do??
-      $.post("http://localhost:3000/api/new", newCharacter)
-      .done(function(data) {
-        console.log(data);
-        alert("Adding character...");
-      });
-
-      return false;
-    });
-  </script>
 
 </body>
 </html>
