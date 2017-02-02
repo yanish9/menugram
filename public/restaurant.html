@@ -16,10 +16,12 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/index.css">
 
 
-    <link rel="stylesheet" type="text/css" href="assets/css/sign_modal.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/sign_modal.css">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/restaurant.css">
 </head>
 
 <body>
@@ -75,82 +77,23 @@
             </div>
         </div>
     </header>
-    <!-- header close -->
 
-    <div id="map">
-        <!-- Slider Start -->
-        <section id="slider">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="block">
-                            <h1 class="animated name">MENUGRAM</h1>
-                            <p class="animated fadeInUp">
-                                <div class="row search-row">
-                                    <input type="text" name="" value="steak" title="Hooray!" placeholder="Search..." id="input-search">
-                                    <input type="text" name="" value="orlando" placeholder="Location" id="input-location">
-                                    <br><br>
-                                    <button id="search-btn" class="btn btn-primary search-btn ">Search</button>
-
-                                </div>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <div class="col-sm-5" id="listPlaces" style="display:none">
-            waaaaaa
-        </div>
-    </div>
-    <!-- Wrapper Start -->
-    <div class="modal fade" id="mModal" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="form">
-                <form class="register-form">
-                    <input id="register_name" type="text" placeholder="Username" />
-                    <input id="first_name" type="text" placeholder="first name" />
-                    <input id="last_name" type="text" placeholder="Last Name" />
-                    <input id="register_password" type="password" placeholder="password" />
-                    <input id="register_email" type="text" placeholder="email address" />
-                    <button id="register_button">create</button>
-                    <p class="message">Already registered? <a href="#">Sign In</a></p>
-                </form>
-                <form class="login-form">
-                    <input id="login_email" type="text" placeholder="Email" />
-                    <input id="login_password" type="password" placeholder="password" />
-                    <button id="login_button">login</button>
-                    <p class="message">Not registered? <a href="#">Create an account</a></p>
-                </form>
-            </div>
-
-
-        </div>
-    </div>
-    <!-- footer Start -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="footer-manu">
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">How it works</a></li>
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">Terms</a></li>
-                        </ul>
-                    </div>
-                    <p>Copyright &copy; Design & Developed by <a href="http://www.themefisher.com">Themefisher</a>. All rights reserved.</p>
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <div class="holdingDiv">
+                    <form action="/file-upload" name="upload" class="dropzone dz-clickable" id="dropzoneArea" enctype="multipart/form-data" method="post">
+                        <input type="file" name="theFile" />
+                        <button id="uploadSubmitter" class="btn btn-primary btn-large" type="submit">Finished</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+    <div class="row images_ small-up-2 medium-up-3 large-up-4">
 
+
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -167,10 +110,9 @@
 
 
 
-    <script type="text/javascript" src='assets/js/signInRegister.js'></script>
+    <script type="text/javascript" src='../assets/js/signInRegister.js'></script>
 
-    <script type="text/javascript" src='assets/js/index.js'></script>
-
+    <script type="text/javascript" src='../assets/js/restaurant.js'></script>
 </body>
 
 </html>

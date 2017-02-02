@@ -29,6 +29,7 @@ module.exports = function(app) {
             req.busboy.on('file', function(fieldname, file, filename) {
                 console.log("Uploading: " + filename);
                 fstream = fs.createWriteStream(__dirname + '/files/' + filename);
+                console.log(__dirname + '/files/' + filename);
                 file.pipe(fstream);
                 fstream.on('close', function() {
                     res.redirect('back');
@@ -36,27 +37,10 @@ module.exports = function(app) {
             });
         });
 
-        app.get("/query/:query/location/:location", function(req, res) {
 
-            yelp.search({ term: req.params.query, location: req.params.location })
-                .then(function(data) {
-                    res.json(data);
-                })
-                .catch(function(err) {
-                    console.error(err);
-                });
-
-        });
 
     }
     // See http://www.yelp.com/developers/documentation/v2/search_api 
 
 
-// See http://www.yelp.com/developers/documentation/v2/business 
-
-
-// A callback based API is also available: 
-yelp.business('yelp-san-francisco', function(err, data) {
-    if (err) return console.log(error);
-    console.log(data);
-});
+// See http://www.yelp.com/developers/documentation/v2/business

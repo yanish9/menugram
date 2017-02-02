@@ -19,10 +19,18 @@
 
 
 	    $(document).on("click", "#login_button", loginUser);
+	    $(document).on("click", "#sign", showModalSignRegister);
+
+	    $(document).on("click", "#logout", logout);
 
 
-	    $("#sign-in").on("click", showModalSignRegister);
+	    function logout() {
 
+	        firebase.auth().signOut().then(function() {
+	            console.log("ok")
+	        })
+
+	    }
 
 	    function showModalSignRegister() {
 	        $("#mModal").modal("show");
@@ -56,16 +64,16 @@
 	            if (user) {
 
 	                isLogin = true;
-	                $("#sign-in").html("");
-	                $("#sign-in").html('<a href="#">' + user.displayName + '</a>');
-                  $("#register").empty();
+	                $("#sign").html("");
+	                $("#sign").html('<a id="sign" href="#">' + user.displayName + '</a>');
+	                $("#register").html('<a id="logout" href="#">' + "Logout" + '</a>');
 
 	            } else {
 
 	                isLogin = false;
-	                $("#sign-in").html("");
-	                $("#sign-in").html('<a href="#">Sign In</a>');
-	                $("#register").html('<a href="#">Register</a>');
+	                $("#sign").html("");
+	                $("#sign").html('<a  id="sign" href="#">Sign In</a>');
+	                $("#register").html('<a id= "register" href="#">Register</a>');
 	                //$("#registerbutton").on("click", registerModal);
 
 	            }
@@ -114,7 +122,7 @@
 	    }
 
 	    function registerUser(argument) {
-
+	        var user;
 
 	        var email = $("#register_email").val();
 	        var password = $("#register_password").val();
@@ -125,26 +133,21 @@
 	        firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
 
 
-	            var user = firebase.auth().currentUser;
+	            user = firebase.auth().currentUser;
 	            if (user !== null) {
 	                user.updateProfile({
 	                    displayName: displayName
 	                }).then(function() {
-	                    console.log("Update successful.");
 
-	                    /* database.ref("users/"+email.replace(".","-")).set({
-          email:email,
-          displayName:displayName,
-          lastName:last,
-          firstName:first
 
-        });
-*/
 
 	                }, function(error) {
 	                    // An error happened.
 	                })
 	            }
+
+
+
 	        })
 
 
@@ -155,9 +158,14 @@
 	            var errorMessage = error.message;
 	            console.log(error.code + ": " + error.message);
 
-	            console.log(authData);
+	            // console.log(authData);
 	        });
-
+	        if (user !== null) {
+	            var userdetails = { username: displayName, name: last + " " + first, email: email }
+	            $.post("http://localhost:8080/createUser", userdetails, function(res) {
+	                console.log("Update successful.");
+	            })
+	        }
 
 	        return false;
 	    }

@@ -1,10 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 
     var Dish_img = sequelize.define("dish_img", {
-            img_id: {
-                type: DataTypes.STRING,
-                primaryKey: true
-            },
+
             user_id: {
                 type: DataTypes.STRING
             },

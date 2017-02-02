@@ -1,9 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Restaurant = sequelize.define("restaurant", {
-            rest_id: {
-                type: DataTypes.STRING,
-                primaryKey: true
-            },
+
             rest_name: {
                 type: DataTypes.STRING
             },
