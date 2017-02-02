@@ -19,18 +19,18 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/restaurantController.js");
+//var routes = require("./controllers/restaurantController.js");
 
 
-require("./routes/html-routes.js")(app);
+//require("./routes/html-routes.js")(app);
 
-app.use("/", routes);
+//app.use("/", routes);
 
 var db = require("./models");
 
-db.sequelize.sync().then(function() {
-    app.listen(port, function() {
+db.sequelize.sync().then(function () {
+    app.listen(port, function () {
         console.log("App listening on PORT " + port);
-
+        require("./data.js")(db);
     });
 });

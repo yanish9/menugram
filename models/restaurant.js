@@ -1,9 +1,7 @@
+'use strict'
+
 module.exports = function(sequelize, DataTypes) {
     var Restaurant = sequelize.define("restaurant", {
-            rest_id: {
-                type: DataTypes.STRING,
-                primaryKey: true
-            },
             rest_name: {
                 type: DataTypes.STRING
             },
@@ -27,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
             classMethods: {
                 associate: function(models) {
                     // Associating "Restaurant" with "rest_dish"
-                    //Restaurant.hasOne(models.rest_dish);
+                    Restaurant.hasMany(models.rest_dish);
                 }
             }
         });

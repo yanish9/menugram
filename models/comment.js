@@ -1,15 +1,7 @@
+'use strict'
+
 module.exports = function(sequelize, DataTypes) {
     var Comment = sequelize.define("comment", {
-            comment_id: {
-                type: DataTypes.STRING,
-                primaryKey: true
-            },
-            user_id: {
-                type: DataTypes.STRING
-            },
-            restaurant_disk_id: {
-                type: DataTypes.STRING
-            },
             comment: {
                 type: DataTypes.STRING
             }
@@ -20,7 +12,8 @@ module.exports = function(sequelize, DataTypes) {
             classMethods: {
                 associate: function(models) {
                     // Associating "Comment" with "Dish"
-                    Comment.hasOne(models.rest_dish);
+                    Comment.belongsTo(models.rest_dish);
+                    //Comment.belongsTo(models.rest_dish);
                     // Associating "Comment" with "User"
                     // Comment.belongsTo(models.user);
                 }
