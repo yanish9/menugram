@@ -1,10 +1,8 @@
+'use strict'
+
 module.exports = function(sequelize, DataTypes) {
 
     var Rest_dish = sequelize.define("rest_dish", {
-            rest_dish_id: {
-                type: DataTypes.STRING,
-                primaryKey: true
-            },
             dish_name: {
                 type: DataTypes.STRING
             },
@@ -26,6 +24,8 @@ module.exports = function(sequelize, DataTypes) {
                 associate: function(models) {
                     // Associating "Rest_dish" with "user"
                     Rest_dish.belongsTo(models.restaurant);
+                    // Rest_dish.hasMany(models.dish_img);
+                    // Rest_dish.hasMany(models.comment);
                 }
             }
         });

@@ -1,14 +1,22 @@
+'use strict'
+
 module.exports = function(sequelize, DataTypes) {
 
     var User = sequelize.define("User", {
+
             name: {
                 type: DataTypes.STRING
             },
+
             user_email: {
                 type: DataTypes.STRING
             },
             username: {
                 type: DataTypes.STRING
+            },
+            user_role: {
+                type: DataTypes.STRING,
+                values: ['admin', 'user', 'in review']
             }
         },
         // Here we'll pass a second "classMethods" object into the define method
@@ -20,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
                     // Associating "User" with "Comment"
                     //User.hasMany(models.Comments);
                     // Associating "User" with "Image"
-                    // User.hasMany(models.Dish_img);
+                    User.hasMany(models.comment);
                 }
             }
         });

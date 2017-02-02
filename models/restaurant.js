@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = function(sequelize, DataTypes) {
     var Restaurant = sequelize.define("restaurant", {
 
@@ -24,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
             classMethods: {
                 associate: function(models) {
                     // Associating "Restaurant" with "rest_dish"
-                    //Restaurant.hasOne(models.rest_dish);
+                    Restaurant.hasMany(models.rest_dish);
                 }
             }
         });
