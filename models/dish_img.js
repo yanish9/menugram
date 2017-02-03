@@ -10,6 +10,9 @@ module.exports = function(sequelize, DataTypes) {
             rest_dish_id: {
                 type: DataTypes.STRING
             },
+            img_description: {
+                type: DataTypes.STRING
+            },
             img_url: {
                 type: DataTypes.STRING
             }
