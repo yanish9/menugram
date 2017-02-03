@@ -2,13 +2,6 @@
 
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("user", {
-        userId: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            allowNull: false,
-            autoIncrement: true,
-            unique: true
-        },
         user_name: {
             type: DataTypes.STRING
         },
@@ -22,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
     {
         classMethods: {
             associate: function (models) {
-                User.hasMany({references:{ models:'comment', key: 'userId'}});
+                //User.hasMany({references:{ models:'comment', key: 'userId'}});
             }
         }
     });

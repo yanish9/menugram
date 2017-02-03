@@ -2,13 +2,6 @@
 
 module.exports = function (sequelize, DataTypes) {
     var Comment = sequelize.define("comment", {
-        commentId: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            allowNull: false,
-            autoIncrement: true,
-            unique: true
-        },
         commentTxt: {
             type: DataTypes.STRING,
             allowNull: false
@@ -29,8 +22,8 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    Comment.belongsTo({references:{ models:'rest_dish', key: 'rest_dishId'}});
-                    Comment.belongsTo({references:{ models:'user', key: 'userId'}});
+                    //Comment.belongsTo({references:{ models:'rest_dish', key: 'rest_dishId'}});
+                    //Comment.belongsTo({references:{ models:'user', key: 'userId'}});
                 }
             }
         });

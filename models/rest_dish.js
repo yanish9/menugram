@@ -1,15 +1,7 @@
 'use strict'
 
 module.exports = function (sequelize, DataTypes) {
-
     var Rest_dish = sequelize.define("rest_dish", {
-        rest_dishId: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            allowNull: false,
-            autoIncrement: true,
-            unique: true
-        },
         dish_name: {
             type: DataTypes.STRING
         },
@@ -31,8 +23,8 @@ module.exports = function (sequelize, DataTypes) {
         //We're saying that we want our Author to have Posts
         classMethods: {
             associate: function (models) {
-                Rest_dish.belongsTo({references:{ models:'restaurant', key: 'restaurantId'}});
-                Rest_dish.hasMany({references:{ models:'comment', key: 'rest_dishId'}});
+               // Rest_dish.belongsTo({references:{ models:'restaurant', key: 'restaurantId'}});
+                //Rest_dish.hasMany({references:{ models:'comment', key: 'rest_dishId'}});
             }
         }
     });

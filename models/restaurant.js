@@ -2,13 +2,6 @@
 
 module.exports = function (sequelize, DataTypes) {
     var Restaurant = sequelize.define("restaurant", {
-        restaurantId: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            allowNull: false,
-            autoIncrement: true,
-            unique: true
-        },
         rest_name: {
             type: DataTypes.STRING
         },
@@ -31,7 +24,7 @@ module.exports = function (sequelize, DataTypes) {
         //We're saying that we want our Author to have Posts
         classMethods: {
             associate: function (models) {
-                Restaurant.hasMany({references:{ models:'rest_dish', key: 'restaurantId'}});
+                //Restaurant.hasMany({references:{ models:'rest_dish', key: 'restaurantId'}});
             }
         }
     });
