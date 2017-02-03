@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
     {
         classMethods: {
             associate: function (models) {
-                //User.hasMany({references:{ models:'comment', key: 'userId'}});
+                User.hasMany(models.comment, { foreignKey: 'userId'});
             }
         }
     });

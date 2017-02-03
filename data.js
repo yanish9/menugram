@@ -95,27 +95,27 @@ module.exports = function (db) {
 
     db.user.bulkCreate([
         {
-            name: "User Name 1",
+            user_name: "User Name 1",
             user_email: "User email 1"
             //user_role: "user"
         },
         {
-            name: "User Name 2",
+            user_name: "User Name 2",
             user_email: "User email 2"
             //user_role: "user"
         },
         {
-            name: "User Name 3",
+            user_name: "User Name 3",
             user_email: "User email 3"
             //user_role: "user"
         },
         {
-            name: "User Name 4",
+            user_name: "User Name 4",
             user_email: "User email 4"
             //user_role: "user"
         },
         {
-            name: "User Name 5",
+            user_name: "User Name 5",
             user_email: "User email 5"
             //user_role: "user"
         }

@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes) {
         //We're saying that we want our Author to have Posts
         classMethods: {
             associate: function (models) {
-                //Restaurant.hasMany({references:{ models:'rest_dish', key: 'restaurantId'}});
+                Restaurant.hasMany(models.rest_dish, { foreignKey: 'restaurantId'});
             }
         }
     });
