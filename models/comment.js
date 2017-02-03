@@ -2,8 +2,26 @@
 
 module.exports = function (sequelize, DataTypes) {
     var Comment = sequelize.define("comment", {
-        comment: {
-            type: DataTypes.STRING
+        commentId: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true,
+            unique: true
+        },
+        commentTxt: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        userId: {
+            type: DataTypes.INTEGER,
+            references:{ models:'user', key: 'userId'},
+            onDelete: 'cascade'
+        },
+        rest_dishId: {
+            type: DataTypes.INTEGER,
+            references:{ models:'rest_dish', key: 'rest_dishId'},
+            onDelete: 'cascade'
         }
     },
         // Here we'll pass a second "classMethods" object into the define method
@@ -11,25 +29,8 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    // Associating "Comment" with "Dish"
-                    Comment.belongsTo(models.rest_dish);
-                    // ,
-                    //     {
-                    //         onDelete: "cascade",
-                    //         foreignKey: {
-                    //             allowNull: false
-                    //         }
-                    //     });
-                    //Comment.belongsTo(models.rest_dish);
-                    // Associating "Comment" with "User"
-                    //Comment.belongsTo(models.user);
-                    // ,
-                    //     {
-                    //         onDelete: "cascade",
-                    //         foreignKey: {
-                    //             allowNull: false
-                    //         }
-                    //     });
+                    Comment.belongsTo({references:{ models:'rest_dish', key: 'rest_dishId'}});
+                    Comment.belongsTo({references:{ models:'user', key: 'userId'}});
                 }
             }
         });

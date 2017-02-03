@@ -1,14 +1,23 @@
 'use strict'
 
 module.exports = function (sequelize, DataTypes) {
-
     var Dish_img = sequelize.define("dish_img", {
-
+        dish_imgId: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true,
+            unique: true
+        },
         user_id: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER,
+            references:{ models:'user', key: 'userId'},
+            onDelete: 'cascade'
         },
         rest_dish_id: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER,
+            references:{ models:'rest_dish', key: 'rest_dishId'},
+            onDelete: 'cascade'
         },
         img_description: {
             type: DataTypes.STRING
@@ -23,14 +32,7 @@ module.exports = function (sequelize, DataTypes) {
         // We're saying that we want our Author to have Posts
         // classMethods: {
         associate: function (models) {
-            // Associating "Dish_img" with "restaurant_dish"
-            Dish_img.belongsTo(models.rest_dish,
-                {
-                    onDelete: "cascade",
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
+            Dish_img.belongsTo({references:{ models:'rest_dish', key: 'rest_dishId'}});
         }
     });
     return Dish_img;

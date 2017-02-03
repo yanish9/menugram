@@ -1,9 +1,15 @@
 'use strict'
 
 module.exports = function (sequelize, DataTypes) {
-
     var User = sequelize.define("user", {
-        name: {
+        userId: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true,
+            unique: true
+        },
+        user_name: {
             type: DataTypes.STRING
         },
 
@@ -14,13 +20,9 @@ module.exports = function (sequelize, DataTypes) {
     // Here we'll pass a second "classMethods" object into the define method
     // This is for any additional configuration we want to give our models
     {
-        // We're saying that we want our Author to have Posts
         classMethods: {
             associate: function (models) {
-                // Associating "User" with "Comment"
-                //User.hasMany(models.Comments);
-                // Associating "User" with "Image"
-                User.hasMany(models.comment);
+                User.hasMany({references:{ models:'comment', key: 'userId'}});
             }
         }
     });

@@ -1,29 +1,29 @@
 module.exports = function (db) {
     db.comment.bulkCreate([
         {
-            comment: "comment 1",
-            //restDishId:1,
-            //userId:1
+            commentTxt: "comment 1",
+            restDishId:1,
+            userId:1
         },
         {
-            comment: "comment 2",
-            //restDishId:2,
-            //userId:2
+            commentTxt: "comment 2",
+            restDishId:2,
+            userId:2
         },
         {
-            comment: "comment 3",
-            //restDishId:3,
-            //userId:3
+            commentTxt: "comment 3",
+            restDishId:3,
+            userId:3
         },
         {
-            comment: "comment 4",
-            //restDishId:4,
-            //userId:4
+            commentTxt: "comment 4",
+            restDishId:4,
+            userId:4
         },
         {
-            comment: "comment 5",
-            //restDishId:5,
-            //userId:5
+            commentTxt: "comment 5",
+            restDishId:5,
+            userId:5
         },
     ]);
 
@@ -32,30 +32,30 @@ module.exports = function (db) {
             dish_name: "Dish Name 1",
             dish_type: "Dish Type 1",
             dish_price: 28,
-            //restaurantId:1
+            //restaurantId:"1"
         }, {
             dish_name: "Dish Name 2",
             dish_type: "Dish Type 2",
             dish_price: 29,
-            //restaurantId:2
+            //restaurantId:"2"
         },
         {
             dish_name: "Dish Name 3",
             dish_type: "Dish Type 3",
             dish_price: 30,
-            //restaurantId:3
+            //restaurantId:"3"
         },
         {
             dish_name: "Dish Name 4",
             dish_type: "Dish Type 4",
             dish_price: 31,
-            //restaurantId:4
+            //restaurantId:"4"
         },
         {
             dish_name: "Dish Name 5",
             dish_type: "Dish Type 5",
             dish_price: 32,
-            //restaurantId:5
+            //restaurantId:"5"
         }
     ]);
 
@@ -65,31 +65,31 @@ module.exports = function (db) {
             user_id: 1,
             rest_dish_id: 1,
             img_description: "Good Dish 1",
-            img_url: "photo1"
+            img_url: "/photo1"
         },
         {
             user_id: 2,
             rest_dish_id: 2,
             img_description: "Good Dish 2",
-            img_url: "photo 2"
+            img_url: "/photo 2"
         },
         {
             user_id: 3,
             rest_dish_id: 3,
             img_description: "Good Dish 3",
-            img_url: "photo 3"
+            img_url: "/photo 3"
         },
         {
             user_id: 4,
             rest_dish_id: 4,
             img_description: "Good Dish 4",
-            img_url: "photo 4"
+            img_url: "/photo 4"
         },
         {
             user_id: 5,
             rest_dish_id: 5,
             img_description: "Good Dish 5",
-            img_url: "photo 5"
+            img_url: "/photo 5"
         }
     ]);
 
@@ -128,42 +128,42 @@ module.exports = function (db) {
             rest_long: -81.364201,
             rest_lat: 28.5606620,
             rest_city: "Orlando",
-            rest_type: ""
+            rest_type: "Asian"
         },
         {
             rest_name: "Black Bean Deli",
             rest_long: -81.357469,
             rest_lat: 28.553427,
             rest_city: "Orlando",
-            rest_type: ""
+            rest_type: "Sandwiches"
         },
         {
             rest_name: "Mellow Mushroom",
             rest_long: -81.209889,
             rest_lat: 28.566529,
             rest_city: "Orlando",
-            rest_type: ""
+            rest_type: "Traditional"
         },
         {
             rest_name: "Hubbly Bubbly Falafel Shop",
             rest_long: -81.39014,
             rest_lat: 28.582772,
             rest_city: "Orlando",
-            rest_type: ""
+            rest_type: "Fast Food"
         },
         {
             rest_name: "Dandelion Communitea Cafe",
             rest_long: -81.365709,
             rest_lat: 28.552025,
             rest_city: "Orlando",
-            rest_type: ""
+            rest_type: "Coffee Shop"
         },
         {
             rest_name: "Santiago's Bodega",
             rest_long: -81.367146,
             rest_lat: 28.5639,
             rest_city: "Orlando",
-            rest_type: ""
+            rest_type: "Latino"
         }
     ]);
 };

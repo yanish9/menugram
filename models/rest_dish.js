@@ -3,6 +3,13 @@
 module.exports = function (sequelize, DataTypes) {
 
     var Rest_dish = sequelize.define("rest_dish", {
+        rest_dishId: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true,
+            unique: true
+        },
         dish_name: {
             type: DataTypes.STRING
         },
@@ -11,7 +18,12 @@ module.exports = function (sequelize, DataTypes) {
         },
         dish_price: {
             type: DataTypes.INTEGER
-        }
+        },
+        restaurant_Id: {
+            type: DataTypes.INTEGER,
+            references:{ models:'restaurant', key: 'restaurantId'},
+            onDelete: 'cascade'
+        },
     },
     // Here we'll pass a second "classMethods" object into the define method
     // This is for any additional configuration we want to give our models
@@ -19,17 +31,8 @@ module.exports = function (sequelize, DataTypes) {
         //We're saying that we want our Author to have Posts
         classMethods: {
             associate: function (models) {
-                // Associating "Rest_dish" with "user"
-                Rest_dish.belongsTo(models.restaurant);
-                // ,
-                //     {
-                //         onDelete: "cascade",
-                //         foreignKey: {
-                //             allowNull: false
-                //         }
-                    // });
-                // Rest_dish.hasMany(models.dish_img);
-                // Rest_dish.hasMany(models.comment);
+                Rest_dish.belongsTo({references:{ models:'restaurant', key: 'restaurantId'}});
+                Rest_dish.hasMany({references:{ models:'comment', key: 'rest_dishId'}});
             }
         }
     });
