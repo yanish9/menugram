@@ -11,9 +11,6 @@ module.exports = function(sequelize, DataTypes) {
             },
             dish_price: {
                 type: DataTypes.STRING
-            },
-            rest_id: {
-                type: DataTypes.STRING
             }
         },
         // Here we'll pass a second "classMethods" object into the define method
