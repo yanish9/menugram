@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
                 type: DataTypes.STRING
             },
             dish_price: {
-                type: DataTypes.STRING
+                type: DataTypes.INTEGER
             }
         },
         // Here we'll pass a second "classMethods" object into the define method
