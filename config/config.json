@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "Toto2Titi",
+        "password": "123$",
         "database": "menugram_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
