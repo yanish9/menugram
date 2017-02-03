@@ -24,10 +24,6 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname + "/../public/restaurant.html"));
     });
 
-    // all route loads the all.html page,
-    // where all characters in the db are displayed
-    app.get("/all", function(req, res) {
-        res.sendFile(path.join(__dirname + "/../public/all.html"));
-    });
+
 
 };

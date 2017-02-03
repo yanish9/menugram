@@ -8,9 +8,6 @@ var path = require('path'),
     fs = require('fs');
 
 
-router.get("/", function(req, res) {
-    res.redirect("/mostLiked");
-});
 
 
 router.get("/res/:id", function(req, res) {
