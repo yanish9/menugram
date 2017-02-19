@@ -7,8 +7,22 @@ var db = require("../models");
 var path = require('path'),
     fs = require('fs');
 
+var currentUser;
 
 
+
+
+router.get("/getrestaurant/:id", function(req, res) {
+    console.log(req.params);
+    db.restaurant.findAll({
+        where: { id: req.params.id }
+
+    }).then(function(rest) {
+
+        res.json(rest);
+    });
+
+});
 
 router.get("/res/:id", function(req, res) {
     console.log(req.params.id);
@@ -22,6 +36,66 @@ router.get("/res/:id", function(req, res) {
     });
 
 })
+
+
+router.get("/comments/dish/:id", function(req, res) {
+    console.log(req.params.id);
+    db.comment.findAll({
+        where: {
+            dishImgId: req.params.id
+        }
+    }).then(function(rest) {
+
+        res.json(rest);
+    });
+
+})
+
+
+
+
+router.get("/currentUserById/:id", function(req, res) {
+    console.log(req.params.email);
+    db.User.findAll({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(rest) {
+
+        res.json(rest);
+    });
+
+})
+
+
+router.get("/currentUser/:email", function(req, res) {
+    console.log(req.params.email);
+    db.User.findAll({
+        where: {
+            user_email: req.params.email
+        }
+    }).then(function(rest) {
+
+        res.json(rest);
+    });
+
+})
+
+
+
+router.post("/comments/dish/:id", function(req, res) {
+    //  console.log(req.params.comment);
+    db.comment.create({ comment: req.body.comment, dishImgId: req.body.imgid, UserId: req.body.userid }).then(function(burger) {
+
+
+
+    }).then(function(rest) {
+
+
+        res.json(rest);
+    });
+});
+
 
 router.get("/query/:query/location/:location", function(req, res) {
     console.log("wa");
@@ -38,7 +112,6 @@ router.get("/query/:query/location/:location", function(req, res) {
     }).then(function(rest) {
 
         // console.log(rest[0].dataValues);
-
 
         if (rest.length < 20) {
             db.restaurant.findAll({
@@ -65,15 +138,7 @@ router.get("/query/:query/location/:location", function(req, res) {
 
     });
 });
-router.post("/burgers/create", function(req, res) {
-    console.log(req.body);
 
-    db.burgers.create({ burger_name: req.body.burger_name }).then(function(burger) {
-
-        res.redirect("/");
-    });
-
-});
 
 router.post("/createUser", function(req, res) {
 
@@ -87,11 +152,12 @@ router.post("/createUser", function(req, res) {
 
 
 //...
-router.post('/file-upload', function(req, res) {
+router.post('/file-upload/:resid/user/:userid/:comment', function(req, res) {
     var fstream;
+    var iduser = req.params.userid;
+    console.log("wa" + iduser);
 
     req.pipe(req.busboy);
-
 
     req.busboy.on('file', function(fieldname, file, filename) {
         console.log("Uploading: " + filename);
@@ -102,10 +168,13 @@ router.post('/file-upload', function(req, res) {
         fstream.on('close', function() {
 
             console.log("upload1");
-            db.dish_img.create({ user_id: 2, rest_dish_id: 7, img_url: '/' + filename, createdAt: "2017-02-01 06:32:15", updatedAt: "2017-02-01 06:32:15" }).then(function(user) {
+            //  var arr = ["Great  food", "Love it", "Its delicious", "Not so delicious but looks great", "WOW", "its okay", "I like itt :D"];
+            //  var desc = arr[Math.round(Math.random() * arr.length)];
 
-                res.redirect("/back");
-                console.log(user);
+            db.dish_img.create({ user_id: req.params.userid, rest_dish_id: req.params.resid, img_url: '/' + filename, description: req.params.comment, createdAt: "2017-02-01 06:32:15", updatedAt: "2017-02-01 06:32:15" }).then(function(user) {
+
+                res.redirect("/restaurant/" + req.params.resid);
+                //  console.log(user);
             });
         });
 

@@ -74,7 +74,8 @@ function showMap() {
             var title_ = "<h3 class='title' data-id='" + i + "'><a>" + res[i].rest_name + "</a> </h3>";
             //var rating = "<h5 class='rating'>" + res.businesses[i].rating + " </h5>";
             //var rating1 = "<img src='" + res.businesses[i].rating_img_url_small + "'>";;
-            div.append(title_, "<hr>")
+            var address = "<h5 class='rating'>" + res[i].rest_city + " </h5>";
+            div.append(title_, address, "<hr>")
             $("#side_bar").append(div);
 
         }

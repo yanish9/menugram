@@ -14,6 +14,41 @@ legend {
     padding: 0
 }
 
+.modal-dialog {
+    margin: auto;
+    margin-left: 300px;
+}
+
+.fa {
+    float: right;
+}
+
+.jumbotron {
+    overflow: auto;
+}
+
+.upl {
+    margin-top: 100px;
+    margin-left: 400px;
+}
+
+.images-desc {
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+    text-align: center;
+}
+
+#image-preview {
+    width: 75vh;
+}
+
+#comments-container {
+    background: white;
+    height: 100vh;
+    width: 60vh;
+    padding: 30px;
+}
+
 .row.collapse>.column,
 .row.collapse>.columns,
 .row.small-collapse>.column,

@@ -12,6 +12,9 @@ module.exports = function(sequelize, DataTypes) {
             },
             img_url: {
                 type: DataTypes.STRING
+            },
+            description: {
+                type: DataTypes.STRING
             }
         },
         // Here we'll pass a second "classMethods" object into the define method
